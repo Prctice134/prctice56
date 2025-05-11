@@ -1,0 +1,193 @@
+<!-- Inicio del documento HTML -->
+<html lang="es">
+<head>
+  <!-- Metadatos y configuración básica -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>ACTS Token - La Moneda del Guerrero</title>
+
+  <!-- Enlaces a recursos externos -->
+  <!-- Font Awesome para iconos -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <!-- Archivo de estilos principal -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Definición de variables CSS globales -->
+  <style>
+    :root {
+      --primary-color: #1a1a1a;    
+      --secondary-color: #FFD700;  
+      --accent-color: #8B0000;     
+      --text-color: #2c1810;
+      --bg-color: #f4e4bc;        
+      --header-height: 100px;
+      --mobile-header-height: 80px;
+      --header-bg: #1a1a1a;
+    }
+  </style>
+
+  <!-- Inicio del encabezado -->
+  <header>
+    <!-- Contenedor del logo -->
+    <div class="logo-container">
+      <div class="logo">
+        <img src="assets/logos/logo.png" alt="Logo act">
+        <span>act</span>
+      </div>
+    </div>
+
+    <!-- Enlaces de navegación -->
+    <div class="nav-links">
+      <a href="#tokenomics">Tokenomics</a>
+      <a href="#roadmap">Roadmap</a>
+      <a href="#exchanges">Exchanges</a>
+      <a href="#faucets">Faucets</a>
+      <a href="#comunidad">Comunidad</a>
+      <a href="faq.html">FAQ</a>
+    </div>
+
+    <!-- Controles de navegación adicionales -->
+    <div class="nav-controls">
+      <!-- Selector de idioma -->
+      <div class="language-selector">
+        <div class="language-current">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 40'%3E%3Crect width='60' height='40' fill='%23c60b1e'/%3E%3Crect width='60' height='12' y='14' fill='%23ffc400'/%3E%3C/svg%3E" alt="Español">
+          <span class="arrow">▼</span>
+        </div>
+        <div class="language-options">
+          <button class="language-btn" data-lang="es">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 40'%3E%3Crect width='60' height='40' fill='%23c60b1e'/%3E%3Crect width='60' height='12' y='14' fill='%23ffc400'/%3E%3C/svg%3E" alt="Español">
+            Español
+          </button>
+          <button class="language-btn" data-lang="en">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 40'%3E%3Crect width='60' height='40' fill='%23012169'/%3E%3Cpath d='M0,0 L60,40 M60,0 L0,40' stroke='%23fff' stroke-width='6'/%3E%3Cpath d='M0,0 L60,40 M60,0 L0,40' stroke='%23C8102E' stroke-width='2'/%3E%3Cpath d='M30,0 L30,40 M0,20 L60,20' stroke='%23fff' stroke-width='10'/%3E%3Cpath d='M30,0 L30,40 M0,20 L60,20' stroke='%23C8102E' stroke-width='6'/%3E%3C/svg%3E" alt="English">
+            English
+          </button>
+          <button class="language-btn" data-lang="zh">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 40'%3E%3Crect width='60' height='40' fill='%23ee1c25'/%3E%3Cuse xlink:href='%23s' transform='translate(5,5) scale(3)'/%3E%3Cuse xlink:href='%23s' transform='translate(10,2) rotate(23.036243)'/%3E%3Cuse xlink:href='%23s' transform='translate(12,4) rotate(45.869898)'/%3E%3Cuse xlink:href='%23s' transform='translate(12,7) rotate(69.945396)'/%3E%3Cuse xlink:href='%23s' transform='translate(10,9) rotate(20.659808)'/%3E%3Cpath id='s' fill='%23ffff00' d='M1,0L1,.382L.924,.382C.539,.382,.221,.132,.172,-.153L0,.382L-.172,-.153C-.221,.132-.539,.382-.924,.382L-1,.382L-1,0L1,0z'/%3E%3C/svg%3E" alt="中文">
+            中文
+          </button>
+          <button class="language-btn" data-lang="pt">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 40'%3E%3Crect width='60' height='40' fill='%2300923f'/%3E%3Cpath d='M30,20 L55,32 L55,8 L30,20 L5,8 L5,32 L30,20z' fill='%23fedd00'/%3E%3Ccircle cx='30' cy='20' r='7' fill='%23002776'/%3E%3C/svg%3E" alt="Português">
+            Português
+          </button>
+          <button class="language-btn" data-lang="fr">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 40'%3E%3Crect width='20' height='40' fill='%23002395'/%3E%3Crect width='20' height='40' x='20' fill='%23fff'/%3E%3Crect width='20' height='40' x='40' fill='%23ed2939'/%3E%3C/svg%3E" alt="Français">
+            Français
+          </button>
+        </div>
+      </div>
+      <button class="connect-wallet-btn">Conectar Wallet</button>
+      <button class="menu-toggle">☰</button>
+    </div>
+  </header>
+
+  <!-- Inicio del contenido principal -->
+  <main>
+    <!-- Contenido eliminado -->
+  </main>
+
+  <!-- Inicio del pie de página -->
+  <footer>
+    <div class="footer-content">
+      <!-- Redes sociales -->
+      <div class="social-links">
+        <a href="https://t.me" target="_blank" class="social-icon">
+          <i class="fa-brands fa-telegram"></i> <!-- Ícono de Telegram -->
+        </a>
+        <a href="https://www.reddit.com/user/user/?utm_source=share&utm_medium=mweb3x&utm_name=mweb3xcss&utm_term=1&utm_content=share_button" target="_blank" class="social-icon">
+          <i class="fa-brands fa-reddit-alien"></i> <!-- Ícono de Reddit -->
+        </a>
+        <a href="https://discord.com" target="_blank" class="social-icon">
+          <i class="fa-brands fa-discord"></i> <!-- Ícono de Discord -->
+        </a>
+        
+        <!-- Íconos en SVG -->
+        <a href="https://x.com/Samuraipepe?s=21" target="_blank" class="social-icon">
+          <img src="assets/images/x.svg" alt="X" />
+        </a>
+        
+        <a href="https://coinmarketcap.com/currencies/coin" target="_blank" class="social-icon">
+          <img src="assets/images/Coingeckop.svg" alt="Coingeckop" />
+        </a>
+        
+        <a href="https://www.coingecko.com/en/coins/" target="_blank" class="social-icon">
+          <img src="assets/images/coinmarketcap.svg" alt="CoinMarketCap" />
+        </a>
+      </div>
+    
+      <!-- Copyright -->
+      <p class="copyright">2025 SamuraiPepe. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <style>
+    footer {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background: var(--header-bg);
+      color: white;
+      padding: 1rem 0;
+      text-align: center;
+    }
+  </style>
+
+  <!-- Script para efectos de hover de los iconos sociales -->
+  <script>
+    document.querySelectorAll('.social-icon').forEach(icon => {
+        icon.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-3px)';
+        });
+
+        icon.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0)';
+        });
+    });
+  </script>
+
+  <!-- Modal de conexión de wallet -->
+  <div class="modal-overlay"></div>
+  <div class="wallet-modal">
+    <div class="modal-header">
+      <h2 class="modal-title">Conectar Wallet</h2>
+      <button class="close-modal">×</button>
+    </div>
+    <div class="wallet-options">
+      <div class="wallet-option" data-wallet="metamask">
+        <svg width="24" height="24" viewBox="0 0 24 24">
+          <path d="M20.4 3L12 1.2 3.6 3l-1.2 9.6L12 22.8l9.6-10.2L20.4 3z" fill="#E17726"/>
+        </svg>
+        MetaMask
+      </div>
+      <div class="wallet-option" data-wallet="walletconnect">
+        <svg width="24" height="24" viewBox="0 0 24 24">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" fill="#3B99FC"/>
+        </svg>
+        WalletConnect
+      </div>
+      <div class="wallet-option" data-wallet="trustwallet">
+        <svg width="24" height="24" viewBox="0 0 24 24">
+          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" fill="#3375BB"/>
+        </svg>
+        Trust Wallet
+      </div>
+    </div>
+    <button class="no-wallet-btn">No tengo wallet</button>
+    <div class="wallet-info">
+      <p>Para crear una wallet, sigue estos pasos:</p>
+      <ul style="color: white; margin-top: 1rem; padding-left: 1.5rem;">
+        <li>1. Descarga MetaMask desde su sitio oficial</li>
+        <li>2. Instala la extensión en tu navegador</li>
+        <li>3. Sigue el proceso de creación de cuenta</li>
+        <li>4. Guarda tu frase semilla de forma segura</li>
+        <li>5. ¡Listo para conectarte!</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="script.js"></script>
+</body>
+</html>

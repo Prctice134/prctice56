@@ -1,0 +1,1134 @@
+/* Variables globales */
+:root {
+  --primary-color: #1a1a1a;    /* Color principal, usado para fondos oscuros. */
+  --secondary-color: #FFD700;  /* Color secundario, usado para destacar elementos. */
+  --accent-color: #8B0000;    /* Color de acento, usado para botones y bordes. */
+  --text-color: #2c1810;      /* Color del texto principal. */
+  --bg-color: #f4e4bc;        /* Color de fondo general. */
+  --header-height: 100px;     /* Altura del encabezado en pantallas grandes. */
+  --mobile-header-height: 80px; /* Altura del encabezado en pantallas pequeñas. */
+  --header-bg: #1a1a1a;       /* Color de fondo del encabezado. */
+  --paper-texture: repeating-linear-gradient(
+    45deg,
+    rgba(255, 215, 0, 0.02) 0px,
+    rgba(255, 215, 0, 0.02) 1px,
+    transparent 1px,
+    transparent 2px
+  ); /* Textura de fondo con un patrón de papel. */
+  --brush-font: 'Comic Sans MS', 'Chalkboard SE', sans-serif; /* Fuente personalizada para un estilo único. */
+  --brush-texture: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath d='M1 3h1v1H1zm2-2h1v1H3z' fill='rgba(0,0,0,0.05)'/%3E%3C/svg%3E"); /* Textura de pincel para fondos. */
+  --japanese-pattern: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h40v40H0V0zm20 10a10 10 0 110 20 10 10 0 010-20z' fill='%23006400' fill-opacity='0.05'/%3E%3C/svg%3E"); /* Patrón japonés para fondos. */
+  /* <!--> Este bloque define variables globales para colores, fuentes y texturas que se usan en toda la página. */
+}
+
+/* Estilos globales */
+* {
+  margin: 0; /* Elimina márgenes predeterminados de todos los elementos. */
+  padding: 0; /* Elimina rellenos predeterminados de todos los elementos. */
+  box-sizing: border-box; /* Incluye bordes y rellenos en el tamaño total del elemento. */
+  /* <!--> Este bloque elimina márgenes y rellenos predeterminados y asegura que el tamaño de los elementos incluya bordes y rellenos. */
+}
+
+body {
+  font-family: var(--brush-font), sans-serif; /* Define la fuente principal del sitio. */
+  line-height: 1.6; /* Espaciado entre líneas de texto. */
+  color: var(--text-color); /* Color del texto principal. */
+  background-color: var(--bg-color); /* Color de fondo del cuerpo. */
+  background-image: var(--paper-texture), var(--japanese-pattern); /* Aplica texturas de fondo. */
+  overflow-x: hidden; /* Evita el desplazamiento horizontal. */
+  /* <!--> Este bloque define el estilo general del cuerpo de la página, incluyendo la fuente, colores y texturas de fondo. */
+}
+
+/* Estilos del encabezado */
+header {
+  background: var(--header-bg); /* Color de fondo del encabezado. */
+  position: fixed; /* Fija el encabezado en la parte superior de la página. */
+  width: 100%; /* Ocupa todo el ancho de la pantalla. */
+  top: 0; /* Posición en la parte superior. */
+  z-index: 1000; /* Asegura que el encabezado esté por encima de otros elementos. */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Sombra para dar profundidad. */
+  height: var(--header-height); /* Altura del encabezado. */
+  display: flex; /* Usa flexbox para alinear elementos dentro del encabezado. */
+  align-items: center; /* Centra verticalmente los elementos. */
+  border-bottom: 2px solid var(--accent-color); /* Línea decorativa en la parte inferior. */
+  /* <!--> Este bloque estiliza el encabezado fijo en la parte superior de la página, con un fondo oscuro y una sombra para destacar. */
+}
+
+/* Estilos de navegación */
+nav {
+  max-width: 1200px; /* Ancho máximo del contenedor de navegación. */
+  width: 100%; /* Ocupa todo el ancho disponible. */
+  margin: 0 auto; /* Centra el contenedor horizontalmente. */
+  padding: 0 1rem; /* Espaciado interno en los lados. */
+  display: flex; /* Usa flexbox para alinear los enlaces de navegación. */
+  justify-content: space-between; /* Distribuye los elementos con espacio entre ellos. */
+  align-items: center; /* Centra verticalmente los elementos. */
+  /* <!--> Este bloque organiza los enlaces de navegación dentro del encabezado, asegurando que estén centrados y espaciados uniformemente. */
+}
+
+/* Estilos del logo */
+.logo-container {
+  display: flex; /* Usa flexbox para alinear el logo y su texto. */
+  align-items: center; /* Centra verticalmente los elementos dentro del contenedor. */
+  margin-left: 40px; /* Espaciado a la izquierda del logo. */
+  /* <!--> Este bloque alinea el logo y su texto dentro del encabezado. */
+}
+
+.logo {
+  display: flex; /* Alinea el logo y el texto en línea. */
+  align-items: center; /* Centra verticalmente los elementos. */
+  gap: 0.5rem; /* Espaciado entre el logo y el texto. */
+  font-size: 2rem; /* Tamaño de fuente del texto del logo. */
+  font-weight: 700; /* Grosor del texto del logo. */
+  color: white; /* Color del texto del logo. */
+  text-decoration: none; /* Elimina subrayado del texto. */
+  transform: scale(0.9); /* Escala el logo ligeramente para pantallas pequeñas. */
+  /* <!--> Este bloque define el estilo del logo, incluyendo su tamaño, color y espaciado. */
+}
+
+.logo span {
+  font-family: var(--brush-font); /* Fuente personalizada para el texto del logo. */
+  font-size: 1.8rem; /* Tamaño de fuente del texto adicional del logo. */
+  font-weight: normal; /* Grosor normal del texto adicional. */
+  margin-right: 0px; /* Ajusta el espaciado entre el texto y el logo. */
+}
+
+.logo img {
+  width: 100%; /* Asegura que la imagen del logo se ajuste al contenedor. */
+  max-width: 80px; /* Tamaño máximo de la imagen del logo. */
+  object-fit: contain; /* Mantiene las proporciones de la imagen. */
+  /* <!--> Este bloque asegura que la imagen del logo se ajuste correctamente y mantenga sus proporciones. */
+}
+
+/* Estilos de los enlaces de navegación */
+.nav-links {
+  display: flex; /* Usa flexbox para alinear los enlaces. */
+  align-items: center; /* Centra verticalmente los enlaces. */
+  gap: 2rem; /* Espaciado entre los enlaces. */
+  /* <!--> Este bloque organiza los enlaces de navegación en una fila con espaciado uniforme. */
+}
+
+.nav-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-left: auto;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: normal;
+  font-family: var(--brush-font);
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  position: relative;
+  padding: 0.3rem 0.8rem;
+  border-radius: 5px;
+}
+
+/* Eliminar la línea roja debajo del header */
+.nav-links a::after {
+  content: none;
+}
+
+/* Eliminar la línea roja al pasar el mouse */
+.nav-links a:hover::after {
+  content: none;
+}
+
+.nav-links a:hover {
+  color: var(--secondary-color);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Estilos para el selector de idioma */
+.language-selector {
+  position: relative;
+  margin-right: 1rem;
+  /* <!--> Este bloque define el contenedor del selector de idioma, posicionándolo en el encabezado. */
+}
+
+/* Estilos para el idioma actual seleccionado */
+.language-current {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  cursor: pointer;
+  padding: 0.3rem;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  /* <!--> Este bloque estiliza el idioma actual seleccionado, mostrando una bandera y texto. */
+}
+
+.language-current:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.language-current img {
+  width: 24px;
+  height: 16px;
+  border-radius: 2px;
+}
+
+/* Estilos para el menú desplegable de opciones de idioma */
+.language-options {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: var(--primary-color);
+  border: 1px solid var(--secondary-color);
+  border-radius: 8px;
+  padding: 0.5rem;
+  display: none;
+  flex-direction: column;
+  gap: 0.3rem;
+  min-width: 200px;
+  max-height: 400px;
+  overflow-y: auto;
+  z-index: 1000;
+  /* <!--> Este bloque define el menú desplegable de opciones de idioma, que aparece al interactuar con el selector. */
+}
+
+/* Estilos para cada opción dentro del menú desplegable de idiomas */
+.language-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.6rem;
+  border: none;
+  background: none;
+  color: white;
+  cursor: pointer;
+  width: 100%;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+  text-align: left;
+  /* <!--> Este bloque estiliza cada opción dentro del menú desplegable de idiomas. */
+}
+
+.language-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.language-btn img {
+  width: 24px;
+  height: 16px;
+  border-radius: 2px;
+}
+
+.connect-wallet-btn {
+  background: var(--secondary-color);
+  color: #000000;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: var(--brush-font);
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  margin-right: 1rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.connect-wallet-btn:hover {
+  background: #DAA520;
+  transform: translateY(-2px);
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 1.5rem;
+  color: white;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+main {
+  margin-top: var(--header-height);
+  padding: 2rem 1rem;
+}
+
+.main-title {
+  font-size: 6rem;
+  font-weight: 800;
+  color: white;
+  margin: 4rem 0 0.5rem;
+  text-align: center;
+}
+
+.title-underline {
+  width: 200px;
+  height: 3px;
+  background: var(--secondary-color);
+  margin: 0 auto 2rem;
+  border-radius: 2px;
+}
+
+.presale-text {
+  font-size: 2.5rem;
+  color: var(--secondary-color);
+  margin-bottom: 1rem;
+}
+
+.sub-title {
+  font-size: 3rem;
+  color: var(--accent-color);
+}
+
+.background-elements {
+  display: none;
+}
+
+.temple-bg,
+.kanji-overlay {
+  display: none;
+}
+
+.pergamino {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 3rem;
+  margin: 3rem auto;
+  max-width: 800px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.pergamino::before,
+.pergamino::after {
+  content: '⚔️';
+  position: absolute;
+  font-size: 1.5rem;
+  top: -15px;
+}
+
+.pergamino::before {
+  left: 20px;
+}
+
+.pergamino::after {
+  right: 20px;
+}
+
+.api-info {
+  display: grid;
+  gap: 1rem;
+}
+
+.api-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem;
+  border-bottom: 1px dashed rgba(0, 0, 0, 0.1);
+}
+
+.api-item .label {
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+.scroll-indicator {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  animation: bounce 2s infinite;
+}
+
+.mouse {
+  width: 30px;
+  height: 50px;
+  border: 2px solid var(--primary-color);
+  border-radius: 15px;
+  margin: 0 auto 1rem;
+  position: relative;
+}
+
+.mouse::before {
+  content: '';
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: var(--primary-color);
+  left: 50%;
+  top: 10px;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  animation: scroll 2s infinite;
+}
+
+@keyframes scroll {
+  0% { transform: translateX(-50%) translateY(0); opacity: 1; }
+  100% { transform: translateX(-50%) translateY(20px); opacity: 0; }
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-10px); }
+  60% { transform: translateY(-5px); }
+}
+
+.section-content {
+  margin: 8rem auto;
+  max-width: 900px;
+  padding: 3rem 2rem;
+  position: relative;
+}
+
+.info-content {
+  text-align: center;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.feature {
+  background: white;
+  border: 2px solid var(--secondary-color);
+  border-radius: 15px;
+  padding: 2rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+
+.feature::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: var(--brush-texture);
+  opacity: 0.1;
+  pointer-events: none;
+}
+
+.feature:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.feature svg path {
+  fill: var(--primary-color);
+}
+
+.tokenomics-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+.tokenomics-item {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  border: 1px solid var(--secondary-color);
+}
+
+.tokenomics-item h3 {
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.tokenomics-item ul {
+  list-style: none;
+  padding: 0;
+}
+
+.tokenomics-item li {
+  margin: 1rem 0;
+  padding-left: 1.5rem;
+  position: relative;
+  color: var(--text-color);
+}
+
+.roadmap-timeline {
+  position: relative;
+  padding: 2rem 0;
+}
+
+.roadmap-item {
+  background: white;
+  border-left: 3px solid var(--primary-color);
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  position: relative;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.roadmap-item::before {
+  content: '';
+  position: absolute;
+  left: -8px;
+  top: 0;
+  width: 13px;
+  height: 13px;
+  background: var(--accent-color);
+  border: 2px solid var(--primary-color);
+  border-radius: 50%;
+}
+
+.exchanges-grid {
+  text-align: center;
+}
+
+.exchange-item ul {
+  list-style: none;
+  padding: 0;
+}
+
+.exchange-item li {
+  margin: 1rem 0;
+  font-size: 1.2rem;
+}
+
+.community-links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.social-link {
+  background: white;
+  border: 1px solid var(--secondary-color);
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: var(--primary-color);
+}
+
+.social-link:hover {
+  background: var(--secondary-color);
+  transform: translateY(-3px);
+}
+
+.social-link:hover svg path {
+  fill: white;
+}
+
+.social-link svg {
+  fill: var(--primary-color);
+}
+
+/* Estilos para pantallas más pequeñas (móviles) */
+@media (max-width: 768px) {
+  :root {
+    --header-height: var(--mobile-header-height);
+  }
+
+  header {
+    height: var(--mobile-header-height);
+  }
+
+  nav {
+    padding: 0 0.5rem;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo-container {
+    flex-shrink: 1;
+    margin-right: 0.5rem;
+  }
+  .logo {
+    transform: scale(0.9);
+  }
+ 
+
+
+  .nav-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+  }
+
+  .language-selector {
+    order: 1;
+    margin-right: 0.3rem;
+  }
+
+  .language-current {
+    padding: 0.2rem;
+  }
+
+  .language-current img {
+    width: 20px;
+    height: 14px;
+  }
+
+  .connect-wallet-btn {
+    order: 2;
+    font-size: 0.85rem;
+    padding: 0.4rem 0.8rem;
+    white-space: nowrap;
+  }
+
+  .menu-toggle {
+    order: 3;
+    display: block;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    padding: 0.3rem;
+    margin-left: 0.3rem;
+    cursor: pointer;
+  }
+
+  .nav-links {
+    display: none;
+    position: fixed;
+    top: var(--mobile-header-height);
+    left: 0;
+    right: 0;
+    background: rgba(26, 26, 26, 0.98);
+    flex-direction: column;
+    padding: 1rem;
+    z-index: 999;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .language-options {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    min-width: 160px;
+    background: var(--primary-color);
+    border: 1px solid var(--secondary-color);
+    border-radius: 8px;
+    padding: 0.3rem;
+    z-index: 1000;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-title {
+    font-size: 2.5rem;
+  }
+
+  .presale-text {
+    font-size: 1.5rem;
+  }
+
+  .api-item {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.5rem;
+  }
+
+  .section-content {
+    margin: 2rem auto;
+  }
+
+  .roadmap-item {
+    padding: 1rem;
+  }
+
+  .feature {
+    padding: 1rem;
+  }
+}
+
+@media (min-width: 769px) {
+  .language-selector {
+    margin-right: 2rem;
+  }
+
+  .nav-links {
+    flex: 1;
+    justify-content: center;
+  }
+
+  .logo-container {
+    margin-right: 0; /* El logo está pegado al borde izquierdo */
+  }
+  .logo {
+    transform: scale(1); /* Ajuste para PC */
+  }
+
+
+  .connect-wallet-btn {
+    margin-left: auto;
+  }
+}
+
+.wallet-modal {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--primary-color);
+  border: 2px solid var(--secondary-color);
+  border-radius: 12px;
+  padding: 2rem;
+  z-index: 2000;
+  max-width: 90%;
+  width: 400px;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.modal-title {
+  color: var(--secondary-color);
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: bold;
+  text-align: center;
+  width: 100%;
+}
+
+.close-modal {
+  position: absolute;
+  right: -1rem;
+  top: -1rem;
+  background: var(--primary-color);
+  border: 2px solid var(--secondary-color);
+  color: var(--secondary-color);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.2rem;
+  padding: 0;
+  transition: all 0.3s ease;
+}
+
+.close-modal:hover {
+  background: var(--secondary-color);
+  color: var(--primary-color);
+}
+
+.wallet-modal.active {
+  display: block;
+}
+
+.modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.7);
+  z-index: 1999;
+}
+
+.modal-overlay.active,
+.wallet-modal.active {
+  display: block;
+}
+
+.wallet-options {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.wallet-option {
+  background: rgba(255,215,0,0.1);
+  border: 1px solid var(--secondary-color);
+  padding: 1rem;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border-radius: 8px;
+}
+
+.wallet-option:hover {
+  background: rgba(255,215,0,0.2);
+  transform: translateX(5px);
+}
+
+.no-wallet-btn {
+  background: none;
+  border: none;
+  color: var(--secondary-color);
+  text-decoration: underline;
+  cursor: pointer;
+  padding: 1rem;
+  margin-top: 1rem;
+  font-family: var(--brush-font);
+  width: 100%;
+  text-align: center;
+}
+
+.wallet-info {
+  display: none;
+  color: white;
+  padding: 1rem;
+  background: rgba(255,255,255,0.1);
+  border-radius: 8px;
+  margin-top: 1rem;
+}
+
+.wallet-info.active {
+  display: block;
+}
+
+.faq-item {
+  background: var(--primary-color);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.faq-question {
+  color: white;
+  padding: 1.2rem;
+  cursor: pointer;
+  font-weight: 500;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.faq-answer {
+  background: white;
+  padding: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+  opacity: 0;
+}
+
+.faq-item.active .faq-answer {
+  padding: 1.2rem;
+  max-height: 1000px;
+  opacity: 1;
+}
+
+.faq-question::after {
+  content: '▼';
+  font-size: 0.8em;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1); 
+  color: var(--accent-color);
+}
+
+.faq-item.active .faq-question::after {
+  transform: rotate(180deg);
+}
+
+.faq-page h1 {
+  color: white;
+}
+
+#comunidad {
+  margin-bottom: 25rem;
+}
+
+.japanese-divider {
+  display: none;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  color: white;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.contact-form {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--text-color);
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.8rem;
+  border: 2px solid rgba(0, 100, 0, 0.2);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.9);
+  font-family: var(--brush-font);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group textarea {
+  height: 150px;
+  resize: vertical;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(0, 100, 0, 0.1);
+  outline: none;
+}
+
+.submit-btn {
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 10px;
+  cursor: pointer;
+  font-family: var(--brush-font);
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.submit-btn:hover {
+  background: #008000;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 100, 0, 0.2);
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+footer {
+  background: var(--header-bg);
+  color: white;
+  padding: 2rem 0;
+  margin-top: 8rem;
+  height: 252px; /* Ajusta la altura según tus necesidades */
+  position: relative; /* Esto es necesario para que el copyright se pueda posicionar correctamente */
+}
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Los iconos estarán en la parte superior */
+  height: 100%;
+}
+.footer-content p {
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.social-icon {
+  width: 30px; /* Ancho más pequeño */
+  height: 30px; /* Altura más pequeña */
+  font-size: 1.2rem; /* Tamaño de los iconos más pequeño */
+  border-radius: 50%;
+  background: var(--card-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-color);
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.social-icon:hover {
+  background: var(--secondary-color);
+  transform: translateY(-2px);
+}
+
+.social-icon svg {
+  width: 20px;
+  height: 20px;
+  fill: white;
+}
+
+.social-icon:hover svg {
+  fill: var(--primary-color);
+}
+
+.main-title,
+.section-title,
+h1, h2, h3 {
+  text-shadow: none;
+}
+/* Estilos para las redes sociales */
+.social-links {
+  position: absolute; /* Posicionamos los iconos de manera absoluta */
+  left: 30px; /* Los alineamos al borde izquierdo */
+  bottom: 2cm; /* Los colocamos a 2 cm del borde inferior */
+  display: flex;
+  justify-content: space-between; /* Distribuye los iconos en fila */
+  align-items: center; /* Alinea los iconos en el centro verticalmente */
+  gap: 0.3rem; /* Espacio entre los iconos */
+  padding: 0;
+  width: auto;
+}
+
+.social-links::-webkit-scrollbar {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .social-links {
+    gap: 1.5rem;
+    padding: 0.5rem;
+    justify-content: flex-start;
+    margin: 0 auto 2rem;
+    width: max-content;
+    min-width: 100%;
+  }
+}
+
+.social-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--card-bg); /* Fondo de los iconos */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-color); /* Color de los iconos */
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+}
+.copyright {
+  text-align: center;
+  position: absolute; /* Esto hace que el copyright quede pegado al fondo */
+  bottom: 0; /* Esto asegura que esté en la parte inferior */
+  left: 50%;
+  transform: translateX(-50%); /* Centra el copyright horizontalmente */
+  margin-bottom: 0;
+}
+@media (max-width: 480px) {
+  .social-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+}
+
+.social-icon::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, var(--primary-color), var(--secondary-color)); /* Gradiente para el hover */
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+}
+
+.social-icon i {
+  position: relative;
+  z-index: 2;
+  color: #fff; /* Color blanco para los iconos */
+  font-size: 1.5rem; /* Tamaño de los iconos */
+}
+
+.social-icon:hover {
+  transform: translateY(-5px);
+}
+
+.social-icon:hover::after {
+  width: 150%;
+  height: 150%;
+  opacity: 0.1;
+}
+
+.social-icon::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 0;
+  height: 0;
+  background: radial-gradient(circle, var(--primary-color) 0%, transparent 70%);
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.social-icon:hover i {
+  color: var(--primary-color); /* Color de los iconos cuando el usuario pasa el cursor */
+}
+.social-icon img {
+  width: 30px; /* Ajusta el tamaño deseado */
+  height: 30px; /* Ajusta el tamaño deseado */
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+}
+
+/* Estilos para el botón 'Volver' */
+.volver-button {
+  display: inline-block; /* Hace que el botón sea un elemento en línea con bloque. */
+  padding: 0.5rem 1rem; /* Espaciado interno del botón. */
+  font-size: 1rem; /* Tamaño de fuente del texto del botón. */
+  color: white; /* Color del texto del botón. */
+  background-color: var(--accent-color); /* Color de fondo del botón. */
+  border: none; /* Elimina bordes del botón. */
+  border-radius: 5px; /* Bordes redondeados del botón. */
+  text-decoration: none; /* Elimina subrayado del texto. */
+  cursor: pointer; /* Cambia el cursor al pasar sobre el botón. */
+  transition: background-color 0.3s ease; /* Transición suave al cambiar el color de fondo. */
+  /* <!--> Este bloque estiliza el botón 'Volver', que permite a los usuarios regresar a la página principal. */
+}
+
+.volver-button:hover {
+  background-color: darkred; /* Cambia el color de fondo al pasar el cursor. */
+}

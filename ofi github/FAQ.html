@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQ - ACTS Token</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .faq-page {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 1rem;
+      padding-top: calc(var(--mobile-header-height) + 2rem);
+    }
+
+    .faq-page h1 {
+      color: white;
+      text-shadow: -1px -1px 0 #000,  
+                   1px -1px 0 #000,
+                  -1px 1px 0 #000,
+                   1px 1px 0 #000;
+      text-align: center;
+      font-size: 3rem;
+      margin: 2rem 0;
+    }
+
+    .faq-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+      margin: 2rem 0;
+    }
+
+    .faq-item {
+      background: var(--primary-color);
+      border: none;
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 0.5rem;
+      transition: all 0.3s ease;
+    }
+
+    .faq-question {
+      color: white;
+      padding: 1.2rem;
+      cursor: pointer;
+      font-weight: 500;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      background: var(--primary-color);
+      transition: background-color 0.3s ease;
+    }
+
+    .faq-item:hover .faq-question {
+      background: #2a2a2a;
+    }
+
+    .faq-question::after {
+      content: '▼';
+      font-size: 0.8em;
+      transition: transform 0.3s ease;
+      color: white;
+    }
+
+    .faq-item.active .faq-question::after {
+      transform: rotate(180deg);
+    }
+
+    .faq-answer {
+      background: white;
+      padding: 0;
+      max-height: 0;
+      overflow: hidden;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .faq-item.active .faq-answer {
+      padding: 1.2rem;
+      max-height: 500px;
+    }
+
+    footer {
+      position: relative;
+      bottom: 0;
+      width: 100%;
+      background: var(--header-bg);
+      color: white;
+      padding: 1rem 0;
+      text-align: center;
+    }
+
+    .back-button {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .back-button:hover {
+      color: var(--secondary-color);
+    }
+
+    .back-button svg {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+    }
+
+    .connect-wallet-btn {
+      background: var(--secondary-color);
+      color: #000000;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-family: var(--brush-font);
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      margin-right: 1rem;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      white-space: nowrap;
+    }
+
+    .connect-wallet-btn:hover {
+      background: #DAA520;
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 768px) {
+      .faq-page {
+        padding-top: calc(var(--mobile-header-height) + 1rem);
+      }
+
+      .faq-page h1 {
+        font-size: 2.5rem;
+      }
+
+      .faq-question {
+        padding: 1rem;
+        font-size: 0.95rem;
+      }
+
+      .faq-item.active .faq-answer {
+        padding: 1rem;
+        font-size: 0.9rem;
+      }
+
+      .nav-controls {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .connect-wallet-btn {
+        order: 1;
+      }
+
+      .back-button {
+        order: 2;
+      }
+
+      .menu-toggle {
+        order: 3;
+      }
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-left: 1rem;
+    }
+
+    .logo img {
+      max-width: 50px;
+    }
+
+    .faq-content {
+      text-align: center;
+      margin: 0 auto;
+      max-width: 800px;
+    }
+
+    .nav-links a::after {
+      content: none;
+    }
+
+    header {
+      border-bottom: none;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <!-- Contenedor del logo -->
+    <div class="logo-container">
+      <div class="logo">
+        <a href="index.html">
+          <img src="assets/logos/logo.png" alt="Logo act">
+          <span>act</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Botón de volver -->
+    <div class="nav-controls">
+      <button class="back-button">Volver</button>
+    </div>
+
+    <!-- Selector de idioma -->
+    <div class="language-selector">
+      <div class="language-current">
+        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 40'%3E%3Crect width='60' height='40' fill='%23c60b1e'/%3E%3Crect width='60' height='12' y='14' fill='%23ffc400'/%3E%3C/svg%3E" alt="Español">
+        <span class="arrow">▼</span>
+      </div>
+      <div class="language-options">
+        <button class="language-btn" data-lang="es">Español</button>
+        <button class="language-btn" data-lang="en">English</button>
+      </div>
+    </div>
+  </header>
+
+  <script>
+    // Redirección del botón "Volver"
+    document.querySelector('.back-button').addEventListener('click', function() {
+      window.location.href = 'index.html';
+    });
+
+    // Funcionalidad del selector de idioma
+    document.querySelector('.language-current').addEventListener('click', function() {
+      const options = document.querySelector('.language-options');
+      options.style.display = options.style.display === 'flex' ? 'none' : 'flex';
+    });
+
+    document.querySelectorAll('.language-btn').forEach(button => {
+      button.addEventListener('click', function() {
+        alert(`Idioma cambiado a: ${this.textContent}`);
+      });
+    });
+  </script>
+
+  <main class="faq-page">
+    <h1>Preguntas Frecuentes</h1>
+    
+    <div class="faq-container">
+      <div class="faq-item">
+        <div class="faq-question">¿Qué es ACT?</div>
+        <div class="faq-answer">
+          <p>ACT es una criptomoneda diseñada para combinar la tradición y la innovación, creando una comunidad activa y comprometida dentro del ecosistema de las finanzas descentralizadas. Su objetivo es ofrecer oportunidades a los usuarios dentro de un entorno digital.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">¿Cómo puedo comprar ACT?</div>
+        <div class="faq-answer">
+          <p>Puedes comprar ACT a través de diversos exchanges. Consulta nuestra sección de "Exchanges" en la página para ver las plataformas donde está disponible.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">¿Qué es un faucet y cómo obtengo ACT de uno?</div>
+        <div class="faq-answer">
+          <p>Un faucet es una plataforma que ofrece tokens gratuitos a los usuarios a cambio de realizar tareas sencillas. Visita nuestra sección "Faucets" para aprender cómo obtener ACT sin costo.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">¿Qué es Tokenomics y cómo afecta a ACT?</div>
+        <div class="faq-answer">
+          <p>Tokenomics describe cómo se distribuyen y gestionan los tokens dentro del proyecto. El suministro total de ACT está limitado para mantener su valor a largo plazo. Consulta la sección "Tokenomics" para obtener más detalles sobre la distribución.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">¿ACT es una criptomoneda minable?</div>
+        <div class="faq-answer">
+          <p>ACT no está diseñada para ser minada. Actualmente, puedes obtenerla a través de compras en exchanges y faucets.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">¿Cómo puedo unirme a la comunidad de ACT?</div>
+        <div class="faq-answer">
+          <p>Únete a nuestra comunidad siguiendo nuestras redes sociales y plataformas de discusión. Estarás al tanto de las últimas noticias, actualizaciones y eventos, y podrás interactuar con otros miembros.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">¿Qué hace único a ACT?</div>
+        <div class="faq-answer">
+          <p>ACT fusiona la cultura samurái con la tecnología moderna, ofreciendo una criptomoneda no solo como una inversión, sino como parte de una comunidad que valora el honor, la tradición y la innovación.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">¿Dónde puedo ver el roadmap del proyecto?</div>
+        <div class="faq-answer">
+          <p>El roadmap del proyecto está disponible en la sección "Roadmap", donde podrás seguir las fases de desarrollo y los objetivos a largo plazo.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">¿Cómo puedo mantenerme actualizado sobre el proyecto?</div>
+        <div class="faq-answer">
+          <p>Para estar al día con las últimas actualizaciones del proyecto, síguenos en nuestras redes sociales y suscríbete a nuestro boletín. Recibirás noticias, actualizaciones y eventos importantes.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">¿ACT tiene algún tipo de seguridad adicional?</div>
+        <div class="faq-answer">
+          <p>Nos tomamos muy en serio la seguridad. Estamos implementando medidas para asegurar las transacciones y la protección de los fondos. Puedes leer más sobre nuestras políticas de seguridad en la sección correspondiente de la página.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">¿ACT tiene alguna utilidad a largo plazo?</div>
+        <div class="faq-answer">
+          <p>ACT está diseñado para ser un token de uso dentro de un ecosistema de finanzas descentralizadas. A medida que el proyecto crezca, ofreceremos más formas de usar ACT en varias plataformas y aplicaciones dentro del espacio digital.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <!-- Redes sociales -->
+      <div class="social-links">
+        <a href="https://t.me" target="_blank" class="social-icon">
+          <i class="fa-brands fa-telegram"></i>
+        </a>
+        <a href="https://www.reddit.com/user/user/?utm_source=share&utm_medium=mweb3x&utm_name=mweb3xcss&utm_term=1&utm_content=share_button" target="_blank" class="social-icon">
+          <i class="fa-brands fa-reddit-alien"></i>
+        </a>
+        <a href="https://discord.com" target="_blank" class="social-icon">
+          <i class="fa-brands fa-discord"></i>
+        </a>
+        <a href="https://x.com/Samuraipepe?s=21" target="_blank" class="social-icon">
+          <img src="assets/images/x.svg" alt="X" />
+        </a>
+        <a href="https://coinmarketcap.com/currencies/coin" target="_blank" class="social-icon">
+          <img src="assets/images/Coingeckop.svg" alt="Coingeckop" />
+        </a>
+        <a href="https://www.coingecko.com/en/coins/" target="_blank" class="social-icon">
+          <img src="assets/images/coinmarketcap.svg" alt="CoinMarketCap" />
+        </a>
+      </div>
+
+      <!-- Copyright -->
+      <p class="copyright">2025 SamuraiPepe. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <div class="modal-overlay"></div>
+  <div class="wallet-modal">
+    <div class="modal-header">
+      <h2 class="modal-title">Conectar Wallet</h2>
+      <button class="close-modal">×</button>
+    </div>
+    <div class="wallet-options">
+      <div class="wallet-option" data-wallet="metamask">
+        <svg width="24" height="24" viewBox="0 0 24 24">
+          <path d="M20.4 3L12 1.2 3.6 3l-1.2 9.6L12 22.8l9.6-10.2L20.4 3z" fill="#E17726"/>
+        </svg>
+        MetaMask
+      </div>
+      <div class="wallet-option" data-wallet="walletconnect">
+        <svg width="24" height="24" viewBox="0 0 24 24">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" fill="#3B99FC"/>
+        </svg>
+        WalletConnect
+      </div>
+      <div class="wallet-option" data-wallet="trustwallet">
+        <svg width="24" height="24" viewBox="0 0 24 24">
+          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" fill="#3375BB"/>
+        </svg>
+        Trust Wallet
+      </div>
+    </div>
+    <button class="no-wallet-btn">No tengo wallet</button>
+    <div class="wallet-info">
+      <p>Para crear una wallet, sigue estos pasos:</p>
+      <ul style="color: white; margin-top: 1rem; padding-left: 1.5rem; max-height: 0; overflow: hidden; transition: max-height 0.3s ease;">
+        <li>1. Descarga MetaMask desde su sitio oficial</li>
+        <li>2. Instala la extensión en tu navegador</li>
+        <li>3. Sigue el proceso de creación de cuenta</li>
+        <li>4. Guarda tu frase semilla de forma segura</li>
+        <li>5. ¡Listo para conectarte!</li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // FAQ functionality with smoother animations
+      const faqItems = document.querySelectorAll('.faq-item');
+      
+      faqItems.forEach(item => {
+        const answer = item.querySelector('.faq-answer');
+        
+        item.querySelector('.faq-question').addEventListener('click', () => {
+          // Close all other items
+          faqItems.forEach(otherItem => {
+            if (otherItem !== item && otherItem.classList.contains('active')) {
+              otherItem.classList.remove('active');
+              otherItem.querySelector('.faq-answer').style.maxHeight = '0';
+            }
+          });
+          
+          // Toggle current item
+          const isActive = item.classList.contains('active');
+          item.classList.toggle('active');
+          
+          // Smooth height animation
+          if (!isActive) {
+            answer.style.maxHeight = answer.scrollHeight + "px";
+          } else {
+            answer.style.maxHeight = '0';
+          }
+        });
+      });
+
+      // Wallet Modal functionality
+      const connectWalletBtn = document.querySelector('.connect-wallet-btn');
+      const walletModal = document.querySelector('.wallet-modal');
+      const modalOverlay = document.querySelector('.modal-overlay');
+      const closeModal = document.querySelector('.close-modal');
+      const noWalletBtn = document.querySelector('.no-wallet-btn');
+      const walletInfo = document.querySelector('.wallet-info');
+
+      connectWalletBtn.addEventListener('click', () => {
+        walletModal.classList.add('active');
+        modalOverlay.classList.add('active');
+        walletInfo.classList.remove('active');
+      });
+
+      closeModal.addEventListener('click', () => {
+        walletModal.classList.remove('active');
+        modalOverlay.classList.remove('active');
+      });
+
+      modalOverlay.addEventListener('click', () => {
+        walletModal.classList.remove('active');
+        modalOverlay.classList.remove('active');
+      });
+
+      noWalletBtn.addEventListener('click', () => {
+        walletInfo.classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>
